@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Akash Bondada, a Python Full Stack Developer.">
+    <title>{% block title %}Akash Bondada — Python Full Stack Developer{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}?v=20">
+</head>
+<body class="{{ theme }}-theme">
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="/#top" aria-label="Akash Bondada home"><span>AB</span><strong>Akash<span>.</span></strong></a>
+            <nav aria-label="Primary navigation">
+                <a href="/#about">About</a>
+                <a href="/#skills">Skills</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#education">Education</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+            <form action="/set-theme" method="post" class="theme-form">
+                <button type="submit" class="theme-button" aria-label="Toggle light and dark theme"><span aria-hidden="true">◐</span> {{ 'Light' if theme == 'dark' else 'Dark' }} mode</button>
+            </form>
+        </div>
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+    <footer class="site-footer">
+        <div class="container footer-wrap"><p>© {{ year }} Akash Bondada</p><p>Built with <strong>FastAPI</strong> · Jinja2 · thoughtful code</p></div>
+    </footer>
+</body>
+</html>
